@@ -3,20 +3,94 @@ import { useState } from "react";
 import { Briefcase, MapPin, Shield, Smartphone, Star, ArrowRight } from "lucide-react";
 import logo from "@/assets/kibarua-logo.jpeg";
 
+const SITE_URL = "https://kibarua-connect-local.lovable.app";
+const TITLE = "Kibarua — Casual Jobs Near You in Kenya & Worldwide";
+const DESCRIPTION =
+  "Kibarua is the casual jobs app connecting workers with employers nearby. Find dayburgs, fundi, mjengo, cleaning, delivery and odd jobs in Nairobi, Mombasa, Kisumu and beyond. Android app coming soon — join the waitlist.";
+const KEYWORDS =
+  "kibarua, kibarua app, casual jobs Kenya, jobs near me, dayburg, mjengo jobs, fundi jobs Kenya, odd jobs, hustle jobs Nairobi, gig work Kenya, casual labour app, find workers Kenya, blue collar jobs, day labour app, casual jobs worldwide";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kibarua Link — Jobs. People. Opportunities." },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { name: "keywords", content: KEYWORDS },
+      { name: "robots", content: "index, follow" },
+      { name: "theme-color", content: "#0f3d2e" },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: "Kibarua" },
+      { property: "og:locale", content: "en_KE" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
       {
-        name: "description",
-        content:
-          "Kibarua Link connects casual workers with nearby employers in Kenya. Post a kibarua, find trusted workers, and get the job done. Android app coming soon.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MobileApplication",
+          name: "Kibarua",
+          operatingSystem: "ANDROID",
+          applicationCategory: "BusinessApplication",
+          description: DESCRIPTION,
+          url: SITE_URL,
+          inLanguage: ["en", "sw"],
+          areaServed: [
+            { "@type": "Country", name: "Kenya" },
+            { "@type": "Place", name: "Worldwide" },
+          ],
+          offers: { "@type": "Offer", price: "0", priceCurrency: "KES" },
+        }),
       },
-      { property: "og:title", content: "Kibarua Link — Coming Soon" },
       {
-        property: "og:description",
-        content:
-          "The easiest way to post and find casual jobs near you. Join the waitlist.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Kibarua",
+          url: SITE_URL,
+          logo: `${SITE_URL}/favicon.ico`,
+          sameAs: [],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is Kibarua?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Kibarua is a mobile app that connects casual workers with employers nearby for short-term jobs like dayburgs, mjengo, fundi work, cleaning and deliveries.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Where does Kibarua work?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Kibarua launches first in Kenya — Nairobi, Mombasa, Kisumu and beyond — with plans to support casual job seekers worldwide.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How much does Kibarua cost?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Kibarua is free to download. Join the waitlist to be notified when the Android app launches.",
+              },
+            },
+          ],
+        }),
       },
     ],
   }),
@@ -34,54 +108,61 @@ function Landing() {
 
   return (
     <div className="min-h-screen" style={{ background: "var(--gradient-hero)" }}>
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <div className="flex items-center gap-3">
-          <img src={logo} alt="Kibarua Link logo" className="h-11 w-11 rounded-lg object-cover" />
-          <span className="text-lg font-bold tracking-tight" style={{ color: "var(--brand-navy)" }}>
-            Kibarua Link
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <img src={logo} alt="Kibarua logo" className="h-9 w-9 rounded-lg object-cover sm:h-11 sm:w-11" />
+          <span className="text-base font-bold tracking-tight sm:text-lg" style={{ color: "var(--brand-navy)" }}>
+            Kibarua
           </span>
         </div>
         <span
-          className="rounded-full px-3 py-1 text-xs font-semibold"
+          className="rounded-full px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:text-xs"
           style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
         >
           Coming Soon
         </span>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 pb-24 pt-10 md:pt-20">
-        <section className="grid items-center gap-12 md:grid-cols-2">
-          <div>
+      <main className="mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 md:pt-20">
+        <section className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
+          <div className="text-center md:text-left">
             <div
-              className="mb-5 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
+              className="mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium sm:mb-5"
               style={{ background: "var(--brand-green-soft)", color: "var(--brand-navy)" }}
             >
-              <MapPin className="h-3.5 w-3.5" /> Built for Kenya
+              <MapPin className="h-3.5 w-3.5" /> Built for Kenya · Made for the world
             </div>
             <h1
-              className="text-4xl font-extrabold leading-tight tracking-tight md:text-6xl"
+              className="text-[2rem] font-extrabold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl"
               style={{ color: "var(--brand-navy)" }}
             >
-              Jobs. People. <span style={{ color: "var(--brand-green)" }}>Opportunities.</span>
+              Casual Jobs. <span style={{ color: "var(--brand-green)" }}>Near You.</span>
             </h1>
-            <p className="mt-5 max-w-lg text-lg text-muted-foreground">
-              Kibarua Link is the simplest way to post casual jobs — dayburgs, errands, fundis — and
-              connect with trusted workers nearby. Powered by location, built for hustlers.
+            <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground sm:mt-5 sm:text-lg md:mx-0">
+              Kibarua connects casual workers with employers nearby — dayburgs, mjengo, fundi,
+              cleaning, deliveries and more. Powered by location, built for hustlers.
             </p>
 
-            <form onSubmit={onSubmit} className="mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row">
+            <form
+              onSubmit={onSubmit}
+              className="mx-auto mt-6 flex w-full max-w-md flex-col gap-3 sm:mt-8 sm:flex-row md:mx-0"
+            >
+              <label htmlFor="waitlist-email" className="sr-only">Email address</label>
               <input
+                id="waitlist-email"
                 type="email"
                 required
+                inputMode="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email"
-                className="flex-1 rounded-xl border border-border bg-card px-4 py-3 text-sm outline-none focus:ring-2"
+                className="flex-1 rounded-xl border border-border bg-card px-4 py-3 text-base outline-none focus:ring-2 sm:text-sm"
                 style={{ boxShadow: "var(--shadow-soft)" }}
               />
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
+                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99]"
                 style={{ background: "var(--gradient-brand)", boxShadow: "var(--shadow-soft)" }}
               >
                 {submitted ? "You're in!" : "Notify me"} <ArrowRight className="h-4 w-4" />
@@ -94,47 +175,48 @@ function Landing() {
             )}
           </div>
 
-          <div className="relative flex justify-center">
+          <div className="relative order-first flex justify-center md:order-last">
             <div
               className="absolute inset-0 -z-10 rounded-full blur-3xl"
               style={{ background: "var(--brand-green-soft)" }}
             />
             <img
               src={logo}
-              alt="Kibarua Link"
-              className="w-full max-w-md rounded-3xl bg-white object-contain p-6"
+              alt="Kibarua casual jobs app"
+              className="w-48 rounded-3xl bg-white object-contain p-4 sm:w-72 md:w-full md:max-w-md md:p-6"
               style={{ boxShadow: "var(--shadow-soft)" }}
             />
           </div>
         </section>
 
-        <section className="mt-24 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="mt-16 grid gap-4 sm:mt-24 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {[
-            { icon: Briefcase, title: "Find Jobs Fast", desc: "Post or apply for dayburgs in minutes." },
+            { icon: Briefcase, title: "Find Jobs Fast", desc: "Post or apply for casual jobs in minutes." },
             { icon: Shield, title: "Trusted Workers", desc: "Verified profiles and community ratings." },
             { icon: Smartphone, title: "Secure Payments", desc: "Pay safely with M-PESA integration." },
             { icon: Star, title: "Rated & Reliable", desc: "Reviews keep quality high on every job." },
           ].map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
-              className="rounded-2xl bg-card p-6 transition-transform hover:-translate-y-1"
+              className="rounded-2xl bg-card p-5 transition-transform hover:-translate-y-1 sm:p-6"
               style={{ boxShadow: "var(--shadow-soft)" }}
             >
               <div
-                className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl"
+                className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl sm:mb-4"
                 style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
               >
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="font-semibold" style={{ color: "var(--brand-navy)" }}>
+              <h2 className="font-semibold" style={{ color: "var(--brand-navy)" }}>
                 {title}
-              </h3>
+              </h2>
               <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
             </div>
           ))}
         </section>
 
-        <section className="mt-24 grid gap-8 md:grid-cols-3">
+        <section className="mt-16 grid gap-5 sm:mt-24 sm:gap-8 md:grid-cols-3">
+
           {[
             { n: "01", t: "Post a job", d: "Describe the kibarua, location and pay." },
             { n: "02", t: "Match nearby", d: "Workers around you get instant alerts." },
