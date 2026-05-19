@@ -62,10 +62,16 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.875rem;
+  --background: oklch(0.99 0.005 240);
+  --foreground: oklch(0.22 0.08 256);
   --card: oklch(1 0 0);
+  --brand-navy: oklch(0.28 0.12 260);
+  --brand-green: oklch(0.62 0.18 145);
+  --brand-green-soft: oklch(0.94 0.05 145);
+  --gradient-hero: linear-gradient(135deg, oklch(0.97 0.02 145) 0%, oklch(0.96 0.03 250) 100%);
+  --gradient-brand: linear-gradient(135deg, var(--brand-navy), var(--brand-green));
+  --shadow-soft: 0 20px 60px -20px oklch(0.28 0.12 260 / 0.25);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
