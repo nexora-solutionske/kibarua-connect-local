@@ -3,20 +3,94 @@ import { useState } from "react";
 import { Briefcase, MapPin, Shield, Smartphone, Star, ArrowRight } from "lucide-react";
 import logo from "@/assets/kibarua-logo.jpeg";
 
+const SITE_URL = "https://kibarua-connect-local.lovable.app";
+const TITLE = "Kibarua — Casual Jobs Near You in Kenya & Worldwide";
+const DESCRIPTION =
+  "Kibarua is the casual jobs app connecting workers with employers nearby. Find dayburgs, fundi, mjengo, cleaning, delivery and odd jobs in Nairobi, Mombasa, Kisumu and beyond. Android app coming soon — join the waitlist.";
+const KEYWORDS =
+  "kibarua, kibarua app, casual jobs Kenya, jobs near me, dayburg, mjengo jobs, fundi jobs Kenya, odd jobs, hustle jobs Nairobi, gig work Kenya, casual labour app, find workers Kenya, blue collar jobs, day labour app, casual jobs worldwide";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kibarua Link — Jobs. People. Opportunities." },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { name: "keywords", content: KEYWORDS },
+      { name: "robots", content: "index, follow" },
+      { name: "theme-color", content: "#0f3d2e" },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: "Kibarua" },
+      { property: "og:locale", content: "en_KE" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
       {
-        name: "description",
-        content:
-          "Kibarua Link connects casual workers with nearby employers in Kenya. Post a kibarua, find trusted workers, and get the job done. Android app coming soon.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MobileApplication",
+          name: "Kibarua",
+          operatingSystem: "ANDROID",
+          applicationCategory: "BusinessApplication",
+          description: DESCRIPTION,
+          url: SITE_URL,
+          inLanguage: ["en", "sw"],
+          areaServed: [
+            { "@type": "Country", name: "Kenya" },
+            { "@type": "Place", name: "Worldwide" },
+          ],
+          offers: { "@type": "Offer", price: "0", priceCurrency: "KES" },
+        }),
       },
-      { property: "og:title", content: "Kibarua Link — Coming Soon" },
       {
-        property: "og:description",
-        content:
-          "The easiest way to post and find casual jobs near you. Join the waitlist.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Kibarua",
+          url: SITE_URL,
+          logo: `${SITE_URL}/favicon.ico`,
+          sameAs: [],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is Kibarua?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Kibarua is a mobile app that connects casual workers with employers nearby for short-term jobs like dayburgs, mjengo, fundi work, cleaning and deliveries.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Where does Kibarua work?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Kibarua launches first in Kenya — Nairobi, Mombasa, Kisumu and beyond — with plans to support casual job seekers worldwide.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How much does Kibarua cost?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Kibarua is free to download. Join the waitlist to be notified when the Android app launches.",
+              },
+            },
+          ],
+        }),
       },
     ],
   }),
