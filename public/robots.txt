@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kibarua-connect-local.lovable.app/sitemap.xml
