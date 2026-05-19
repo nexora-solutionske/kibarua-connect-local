@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Kibarua App" },
+      { name: "description", content: "Kibarua connects casual workers with local job opportunities and employers with available talent." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Kibarua App" },
+      { property: "og:description", content: "Kibarua connects casual workers with local job opportunities and employers with available talent." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Kibarua App" },
+      { name: "twitter:description", content: "Kibarua connects casual workers with local job opportunities and employers with available talent." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/RzftConWrVOrkV5KWORdhzLaHf03/social-images/social-1779170601828-WhatsApp_Image_2026-05-18_at_16.07.56.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/RzftConWrVOrkV5KWORdhzLaHf03/social-images/social-1779170601828-WhatsApp_Image_2026-05-18_at_16.07.56.webp" },
     ],
     links: [
       {
