@@ -125,7 +125,7 @@ function Landing() {
         </span>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 md:pt-20">
+      <main className="relative z-10 mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 md:pt-20">
         <section className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
           <div className="text-center md:text-left">
             <div
