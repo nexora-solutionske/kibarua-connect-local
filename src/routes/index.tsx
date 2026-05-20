@@ -6,7 +6,7 @@ import logo from "@/assets/kibarua-logo.jpeg";
 const SITE_URL = "https://kibarua-connect-local.lovable.app";
 const TITLE = "Kibarua — Casual Jobs Near You in Kenya & Worldwide";
 const DESCRIPTION =
-  "Kibarua is the casual jobs app connecting workers with employers nearby. Find dayburgs, fundi, mjengo, cleaning, delivery and odd jobs in Nairobi, Mombasa, Kisumu and beyond. Android app coming soon — join the waitlist.";
+  "Kibarua connects casual workers with employers nearby Dayburgs, Mjengo, Fundi, Cleaning, Drivers, Plumbers, Electricians, Cooks, Security, Mechanics, Gardeners, Deliveries. Powered by location, built for the people. #ikoworks";
 const KEYWORDS =
   "kibarua, kibarua app, casual jobs Kenya, jobs near me, dayburg, mjengo jobs, fundi jobs Kenya, odd jobs, hustle jobs Nairobi, gig work Kenya, casual labour app, find workers Kenya, blue collar jobs, day labour app, casual jobs worldwide";
 
@@ -139,8 +139,8 @@ function Landing() {
               Casual Jobs. <span style={{ color: "var(--brand-green)" }}>Near You.</span>
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground sm:mt-5 sm:text-lg md:mx-0">
-              Kibarua connects casual workers with employers nearby — dayburgs, mjengo, fundi,
-              cleaning, deliveries and more. Powered by location, built for hustlers.
+              Kibarua connects casual workers with employers nearby Dayburgs, Mjengo, Fundi, Cleaning, Drivers,
+              Plumbers, Electricians, Cooks, Security, Mechanics, Gardeners, Deliveries. Powered by location, built for the people. #ikoworks
             </p>
 
             <form
