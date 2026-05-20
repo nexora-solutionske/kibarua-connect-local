@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Briefcase, MapPin, Shield, Smartphone, Star, ArrowRight } from "lucide-react";
 import logo from "@/assets/kibarua-logo.jpeg";
+import { FloatingIconsBg } from "@/components/FloatingIconsBg";
 
 const SITE_URL = "https://kibarua-connect-local.lovable.app";
 const TITLE = "Kibarua — Casual Jobs Near You in Kenya & Worldwide";
