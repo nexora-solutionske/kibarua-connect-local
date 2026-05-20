@@ -139,8 +139,8 @@ function Landing() {
               Casual Jobs. <span style={{ color: "var(--brand-green)" }}>Near You.</span>
             </h1>
             <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground sm:mt-5 sm:text-lg md:mx-0">
-              Kibarua connects casual workers with employers nearby — dayburgs, mjengo, fundi,
-              cleaning, deliveries and more. Powered by location, built for hustlers.
+              Kibarua connects casual workers with employers nearby Dayburgs, Mjengo, Fundi, Cleaning, Drivers,
+              Plumbers, Electricians, Cooks, Security, Mechanics, Gardeners, Deliveries. Powered by location, built for the people. #ikoworks
             </p>
 
             <form
