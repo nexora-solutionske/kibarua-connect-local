@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Briefcase, MapPin, Shield, Smartphone, Star, ArrowRight } from "lucide-react";
 import logo from "@/assets/kibarua-logo.jpeg";
+import { FloatingIconsBg } from "@/components/FloatingIconsBg";
 
 const SITE_URL = "https://kibarua-connect-local.lovable.app";
 const TITLE = "Kibarua — Casual Jobs Near You in Kenya & Worldwide";
@@ -107,8 +108,9 @@ function Landing() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--gradient-hero)" }}>
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
+    <div className="relative min-h-screen overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+      <FloatingIconsBg />
+      <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
         <div className="flex items-center gap-2 sm:gap-3">
           <img src={logo} alt="Kibarua logo" className="h-9 w-9 rounded-lg object-cover sm:h-11 sm:w-11" />
           <span className="text-base font-bold tracking-tight sm:text-lg" style={{ color: "var(--brand-navy)" }}>
@@ -123,7 +125,7 @@ function Landing() {
         </span>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 md:pt-20">
+      <main className="relative z-10 mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 md:pt-20">
         <section className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
           <div className="text-center md:text-left">
             <div
