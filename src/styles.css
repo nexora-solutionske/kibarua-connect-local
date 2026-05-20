@@ -148,3 +148,39 @@
     color: var(--color-foreground);
   }
 }
+
+#animated-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-icon {
+  position: absolute;
+  color: #007bff;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  padding: 10px;
+  border-radius: 12px;
+  user-select: none;
+  opacity: 0;
+  transform: translateY(100vh);
+  animation: floatUp linear infinite;
+  line-height: 1;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(105vh) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-15vh) rotate(360deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #animated-bg { display: none; }
+}
