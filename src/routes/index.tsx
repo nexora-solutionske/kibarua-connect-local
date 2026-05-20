@@ -107,8 +107,9 @@ function Landing() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--gradient-hero)" }}>
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
+    <div className="relative min-h-screen overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
+      <FloatingIconsBg />
+      <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
         <div className="flex items-center gap-2 sm:gap-3">
           <img src={logo} alt="Kibarua logo" className="h-9 w-9 rounded-lg object-cover sm:h-11 sm:w-11" />
           <span className="text-base font-bold tracking-tight sm:text-lg" style={{ color: "var(--brand-navy)" }}>
