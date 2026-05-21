@@ -103,10 +103,24 @@ export const Route = createFileRoute("/")({
 function Landing() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const join = useServerFn(joinWaitlist);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) setSubmitted(true);
+    const value = email.trim();
+    if (!value || loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      await join({ data: { email: value } });
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
