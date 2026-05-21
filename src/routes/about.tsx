@@ -98,7 +98,7 @@ function AboutPage() {
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
             Kibarua is a location-powered app that connects people in Kenya and beyond
             to the workers and professional service providers nearest to them — fast,
-            trusted, and built for the way real hustlers work. From a quick dayburg
+            trusted, and built for the way real people work. From a quick dayburg
             to a full event setup, Kibarua brings the right person to your doorstep.
           </p>
         </section>
@@ -187,7 +187,7 @@ function AboutPage() {
             Powered by location. Built for the people. #ikoworks
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground sm:text-base">
-            Join the waitlist and be the first to hustle smarter with Kibarua.
+            Join the waitlist and be the first to work smarter with Kibarua.
           </p>
           <Link
             to="/"
