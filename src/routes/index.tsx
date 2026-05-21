@@ -133,12 +133,21 @@ function Landing() {
             Kibarua
           </span>
         </div>
-        <span
-          className="rounded-full px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:text-xs"
-          style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
-        >
-          Coming Soon
-        </span>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            to="/about"
+            className="rounded-full px-3 py-1.5 text-xs font-semibold sm:text-sm"
+            style={{ color: "var(--brand-navy)" }}
+          >
+            About
+          </Link>
+          <span
+            className="rounded-full px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:text-xs"
+            style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
+          >
+            Coming Soon
+          </span>
+        </div>
       </header>
 
       <main className="relative z-10 mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 md:pt-20">
