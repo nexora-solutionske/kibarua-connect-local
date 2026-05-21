@@ -1,8 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Briefcase, MapPin, Shield, Smartphone, Star, ArrowRight } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
+import { Briefcase, MapPin, Shield, Smartphone, Star, ArrowRight, Loader2 } from "lucide-react";
 import logo from "@/assets/kibarua-logo.jpeg";
 import { FloatingIconsBg } from "@/components/FloatingIconsBg";
+import { joinWaitlist } from "@/lib/waitlist.functions";
 
 const SITE_URL = "https://kibarua-connect-local.lovable.app";
 const TITLE = "Kibarua — Casual Jobs Near You in Kenya & Worldwide";
@@ -101,10 +103,24 @@ export const Route = createFileRoute("/")({
 function Landing() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const join = useServerFn(joinWaitlist);
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) setSubmitted(true);
+    const value = email.trim();
+    if (!value || loading) return;
+    setLoading(true);
+    setError(null);
+    try {
+      await join({ data: { email: value } });
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -117,12 +133,21 @@ function Landing() {
             Kibarua
           </span>
         </div>
-        <span
-          className="rounded-full px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:text-xs"
-          style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
-        >
-          Coming Soon
-        </span>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            to="/about"
+            className="rounded-full px-3 py-1.5 text-xs font-semibold sm:text-sm"
+            style={{ color: "var(--brand-navy)" }}
+          >
+            About
+          </Link>
+          <span
+            className="rounded-full px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:text-xs"
+            style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
+          >
+            Coming Soon
+          </span>
+        </div>
       </header>
 
       <main className="relative z-10 mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 md:pt-20">
@@ -164,16 +189,28 @@ function Landing() {
               />
               <button
                 type="submit"
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99]"
+                disabled={loading || submitted}
+                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:opacity-70"
                 style={{ background: "var(--gradient-brand)", boxShadow: "var(--shadow-soft)" }}
               >
-                {submitted ? "You're in!" : "Notify me"} <ArrowRight className="h-4 w-4" />
+                {loading ? (
+                  <>
+                    Saving… <Loader2 className="h-4 w-4 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    {submitted ? "You're in!" : "Notify me"} <ArrowRight className="h-4 w-4" />
+                  </>
+                )}
               </button>
             </form>
             {submitted && (
               <p className="mt-3 text-sm" style={{ color: "var(--brand-green)" }}>
                 Asante! We'll let you know when the app launches.
               </p>
+            )}
+            {error && !submitted && (
+              <p className="mt-3 text-sm text-destructive">{error}</p>
             )}
           </div>
 
