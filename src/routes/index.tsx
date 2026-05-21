@@ -189,16 +189,28 @@ function Landing() {
               />
               <button
                 type="submit"
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99]"
+                disabled={loading || submitted}
+                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:opacity-70"
                 style={{ background: "var(--gradient-brand)", boxShadow: "var(--shadow-soft)" }}
               >
-                {submitted ? "You're in!" : "Notify me"} <ArrowRight className="h-4 w-4" />
+                {loading ? (
+                  <>
+                    Saving… <Loader2 className="h-4 w-4 animate-spin" />
+                  </>
+                ) : (
+                  <>
+                    {submitted ? "You're in!" : "Notify me"} <ArrowRight className="h-4 w-4" />
+                  </>
+                )}
               </button>
             </form>
             {submitted && (
               <p className="mt-3 text-sm" style={{ color: "var(--brand-green)" }}>
                 Asante! We'll let you know when the app launches.
               </p>
+            )}
+            {error && !submitted && (
+              <p className="mt-3 text-sm text-destructive">{error}</p>
             )}
           </div>
 
