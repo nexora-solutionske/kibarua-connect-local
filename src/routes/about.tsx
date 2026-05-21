@@ -187,7 +187,7 @@ function AboutPage() {
             Powered by location. Built for the people. #ikoworks
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground sm:text-base">
-            Join the waitlist and be the first to hustle smarter with Kibarua.
+            Join the waitlist and be the first to work smarter with Kibarua.
           </p>
           <Link
             to="/"
