@@ -1,9 +1,10 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Briefcase, MapPin, Shield, Smartphone, Star, ArrowRight, Loader2 } from "lucide-react";
 import logo from "@/assets/kibarua-logo.jpeg";
 import { FloatingIconsBg } from "@/components/FloatingIconsBg";
+import { NavBar } from "@/components/NavBar";
 import { joinWaitlist } from "@/lib/waitlist.functions";
 
 const SITE_URL = "https://kibarua-connect-local.lovable.app";
@@ -126,29 +127,7 @@ function Landing() {
   return (
     <div className="relative min-h-screen overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       <FloatingIconsBg />
-      <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <img src={logo} alt="Kibarua logo" className="h-9 w-9 rounded-lg object-cover sm:h-11 sm:w-11" />
-          <span className="text-base font-bold tracking-tight sm:text-lg" style={{ color: "var(--brand-navy)" }}>
-            Kibarua
-          </span>
-        </div>
-        <div className="flex items-center gap-2 sm:gap-3">
-          <Link
-            to="/about"
-            className="rounded-full px-3 py-1.5 text-xs font-semibold sm:text-sm"
-            style={{ color: "var(--brand-navy)" }}
-          >
-            About
-          </Link>
-          <span
-            className="rounded-full px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:text-xs"
-            style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
-          >
-            Coming Soon
-          </span>
-        </div>
-      </header>
+      <NavBar />
 
       <main className="relative z-10 mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 sm:pb-24 md:pt-20">
         <section className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
