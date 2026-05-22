@@ -1,26 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  Sparkles,
-  Hammer,
-  Scissors,
-  Camera,
-  Video,
-  Palette,
-  Scale,
-  Home,
-  Music,
-  Tent,
-  Flame,
-  PaintBucket,
-  Sprout,
-  ArrowLeft,
-} from "lucide-react";
-import logo from "@/assets/kibarua-logo.jpeg";
+import { MapPin, Shield, Zap, Heart } from "lucide-react";
+import { NavBar } from "@/components/NavBar";
 
 const SITE_URL = "https://kibarua-connect-local.lovable.app";
-const TITLE = "About Kibarua — All Services Under One Roof";
+const TITLE = "About Esiai Solutions — The Company Behind Kibarua";
 const DESCRIPTION =
-  "Kibarua is a location-powered app that connects you to casual workers and professional service providers nearby — massage, nails, tour guides, photographers, video editors, AI graphic designers, fundi wa nguo, cloth designers, printers, legal services, Air BnB, sound systems, tents, welders, painters, planters and more. All under one roof.";
+  "Esiai Solutions is a technology company founded to connect casual workers with employers through a safe and reliable digital platform powered by GPS location.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -41,139 +26,74 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const casual = [
-  "Dayburgs", "Mjengo", "Fundi", "Cleaning", "Drivers", "Plumbers",
-  "Electricians", "Cooks", "Security", "Mechanics", "Gardeners", "Deliveries",
-];
-
-const professional = [
-  { icon: Sparkles, label: "Massage" },
-  { icon: Scissors, label: "Nails" },
-  { icon: Sprout, label: "Tour Guides" },
-  { icon: Camera, label: "Photographers" },
-  { icon: Video, label: "Video Editors" },
-  { icon: Palette, label: "AI Graphic Designers" },
-  { icon: Hammer, label: "Fundi wa Nguo" },
-  { icon: Scissors, label: "Cloth Designers" },
-  { icon: PaintBucket, label: "Printers" },
-  { icon: Scale, label: "Legal Services" },
-];
-
-const other = [
-  { icon: Home, label: "Air BnB" },
-  { icon: Music, label: "Sound Systems for Hire" },
-  { icon: Tent, label: "Tents" },
-  { icon: Flame, label: "Welders" },
-  { icon: PaintBucket, label: "Painters" },
-  { icon: Sprout, label: "Planters" },
+const values = [
+  { icon: Shield, title: "Safety", desc: "Verified profiles, location-based matching, and trusted interactions." },
+  { icon: Zap, title: "Convenience", desc: "Find or be found in minutes — no middlemen, no waiting." },
+  { icon: Heart, title: "Empowerment", desc: "Real economic opportunities for casual workers across communities." },
+  { icon: MapPin, title: "Location-First", desc: "GPS technology matches the right people in the right place." },
 ];
 
 function AboutPage() {
   return (
     <div className="relative min-h-screen" style={{ background: "var(--gradient-hero)" }}>
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
-        <Link to="/" className="flex items-center gap-2 sm:gap-3">
-          <img src={logo} alt="Kibarua logo" className="h-9 w-9 rounded-lg object-cover sm:h-11 sm:w-11" />
-          <span className="text-base font-bold tracking-tight sm:text-lg" style={{ color: "var(--brand-navy)" }}>
-            Kibarua
-          </span>
-        </Link>
-        <Link
-          to="/"
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold sm:text-sm"
-          style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
-        >
-          <ArrowLeft className="h-3.5 w-3.5" /> Home
-        </Link>
-      </header>
+      <NavBar />
 
-      <main className="mx-auto max-w-5xl px-4 pb-20 pt-4 sm:px-6 sm:pt-8">
+      <main className="mx-auto max-w-4xl px-4 pb-20 pt-4 sm:px-6 sm:pt-8">
         <section className="text-center">
+          <span
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
+            style={{ background: "var(--brand-green-soft)", color: "var(--brand-navy)" }}
+          >
+            About the company
+          </span>
           <h1
-            className="text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl"
+            className="mt-4 text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl"
             style={{ color: "var(--brand-navy)" }}
           >
-            All Services. <span style={{ color: "var(--brand-green)" }}>Under One Roof.</span> ⚒️
+            Esiai <span style={{ color: "var(--brand-green)" }}>Solutions</span>
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Kibarua is a location-powered app that connects people in Kenya and beyond
-            to the workers and professional service providers nearest to them — fast,
-            trusted, and built for the way real people work. From a quick dayburg
-            to a full event setup, Kibarua brings the right person to your doorstep.
+            The technology company building Kibarua.
+          </p>
+        </section>
+
+        <section
+          className="mt-10 rounded-2xl bg-card p-6 sm:p-10"
+          style={{ boxShadow: "var(--shadow-soft)" }}
+        >
+          <p className="text-base leading-relaxed text-foreground sm:text-lg">
+            Esiai Solutions is a technology company founded to connect casual workers with
+            employers through a safe and reliable digital platform. Using GPS tracking
+            technology, the Esiai Solutions app helps clients easily find nearby workers while
+            enabling workers to access genuine job opportunities within their location.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-foreground sm:text-lg">
+            The company was created to promote safety, convenience, and economic empowerment
+            by making casual job access faster, easier, and more trustworthy.
           </p>
         </section>
 
         <section className="mt-12">
           <h2 className="text-xl font-bold sm:text-2xl" style={{ color: "var(--brand-navy)" }}>
-            Casual Jobs (Kazi za Mkono)
+            What we stand for
           </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Quick, short-term work — posted and matched within minutes.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {casual.map((c) => (
-              <span
-                key={c}
-                className="rounded-full px-3 py-1.5 text-sm font-medium"
-                style={{ background: "var(--brand-green-soft)", color: "var(--brand-navy)" }}
-              >
-                {c}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-12">
-          <h2 className="text-xl font-bold sm:text-2xl" style={{ color: "var(--brand-navy)" }}>
-            Professional Services
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Verified pros for when the job needs a specialist.
-          </p>
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-            {professional.map(({ icon: Icon, label }) => (
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {values.map(({ icon: Icon, title, desc }) => (
               <div
-                key={label}
-                className="flex items-center gap-2 rounded-xl bg-card p-3"
+                key={title}
+                className="rounded-2xl bg-card p-5"
                 style={{ boxShadow: "var(--shadow-soft)" }}
               >
-                <span
-                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
+                <div
+                  className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-xl"
                   style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
                 >
-                  <Icon className="h-4 w-4" />
-                </span>
-                <span className="text-sm font-medium" style={{ color: "var(--brand-navy)" }}>
-                  {label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-12">
-          <h2 className="text-xl font-bold sm:text-2xl" style={{ color: "var(--brand-navy)" }}>
-            Other Services & Hire
-          </h2>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Equipment, spaces, and trades for every plan — big or small.
-          </p>
-          <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3">
-            {other.map(({ icon: Icon, label }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2 rounded-xl bg-card p-3"
-                style={{ boxShadow: "var(--shadow-soft)" }}
-              >
-                <span
-                  className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                  style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
-                >
-                  <Icon className="h-4 w-4" />
-                </span>
-                <span className="text-sm font-medium" style={{ color: "var(--brand-navy)" }}>
-                  {label}
-                </span>
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-semibold" style={{ color: "var(--brand-navy)" }}>
+                  {title}
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
               </div>
             ))}
           </div>
@@ -186,21 +106,27 @@ function AboutPage() {
           <h2 className="text-2xl font-bold" style={{ color: "var(--brand-navy)" }}>
             Powered by location. Built for the people. #ikoworks
           </h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground sm:text-base">
-            Join the waitlist and be the first to work smarter with Kibarua.
-          </p>
-          <Link
-            to="/"
-            className="mt-5 inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white"
-            style={{ background: "var(--gradient-brand)", boxShadow: "var(--shadow-soft)" }}
-          >
-            Join the waitlist
-          </Link>
+          <div className="mt-5 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-5 py-3 text-sm font-semibold"
+              style={{ color: "var(--brand-navy)" }}
+            >
+              See our services
+            </Link>
+            <Link
+              to="/"
+              className="inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white"
+              style={{ background: "var(--gradient-brand)", boxShadow: "var(--shadow-soft)" }}
+            >
+              Join the waitlist
+            </Link>
+          </div>
         </section>
       </main>
 
       <footer className="border-t border-border/60 py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Kibarua Link. Jobs. People. Opportunities.
+        © {new Date().getFullYear()} Esiai Solutions. All rights reserved.
       </footer>
     </div>
   );
