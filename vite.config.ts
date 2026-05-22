@@ -10,6 +10,8 @@ import { nitro } from "nitro/vite";
 // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 export default defineConfig({
+  // Disable Lovable's Cloudflare build plugin on Vercel — it conflicts with Nitro.
+  cloudflare: false,
   tanstackStart: {
     server: { entry: "server" },
   },
