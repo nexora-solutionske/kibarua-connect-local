@@ -49,7 +49,7 @@ const sections: { title: string; body: string | string[] }[] = [
   },
   {
     title: "6. Payments",
-    body: "Esiai Solutions may charge service fees for use of the platform. All payments must be completed as agreed between parties.",
+    body: "Esiai Solutions shall charge service fees for use of the platform. All payments must be completed as agreed between parties.",
   },
   {
     title: "7. Safety and Conduct",
