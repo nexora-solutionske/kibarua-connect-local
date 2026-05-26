@@ -1,8 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Apple, MapPin, Shield, Smartphone, Star, Briefcase } from "lucide-react";
+import { useMemo, useState } from "react";
+import {
+  Apple, MapPin, Shield, Smartphone, Star, Briefcase, Search,
+  Wrench, Hammer, Truck, Sparkles, Zap, Droplets, ChefHat,
+  ShieldCheck, Car, Leaf, Package, Shirt, PaintBucket, Scissors,
+} from "lucide-react";
 import logo from "@/assets/kibarua-logo.jpeg";
 import { FloatingIconsBg } from "@/components/FloatingIconsBg";
 import { NavBar } from "@/components/NavBar";
+
 
 
 const SITE_URL = "https://kibarua-connect-local.lovable.app";
