@@ -106,6 +106,33 @@ export const Route = createFileRoute("/")({
 });
 
 function Landing() {
+  const [query, setQuery] = useState("");
+  const categories = [
+    { name: "Handyman", icon: Wrench },
+    { name: "Mamafua", icon: Sparkles },
+    { name: "Deliveries", icon: Truck },
+    { name: "Carpenters", icon: Hammer },
+    { name: "Mjengo", icon: Hammer },
+    { name: "Fundi", icon: Wrench },
+    { name: "Cleaning", icon: Sparkles },
+    { name: "Drivers", icon: Car },
+    { name: "Plumbers", icon: Droplets },
+    { name: "Electricians", icon: Zap },
+    { name: "Cooks", icon: ChefHat },
+    { name: "Security", icon: ShieldCheck },
+    { name: "Mechanics", icon: Wrench },
+    { name: "Gardeners", icon: Leaf },
+    { name: "Movers", icon: Package },
+    { name: "Tailors", icon: Shirt },
+    { name: "Painters", icon: PaintBucket },
+    { name: "Salon & Nails", icon: Scissors },
+  ];
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return categories;
+    return categories.filter((c) => c.name.toLowerCase().includes(q));
+  }, [query]);
+
 
 
   return (
