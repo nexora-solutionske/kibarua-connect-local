@@ -8,6 +8,25 @@ import {
 import logo from "@/assets/kibarua-logo.jpeg";
 import { FloatingIconsBg } from "@/components/FloatingIconsBg";
 import { NavBar } from "@/components/NavBar";
+import catHandyman from "@/assets/categories/handyman.jpg";
+import catMamafua from "@/assets/categories/mamafua.jpg";
+import catDeliveries from "@/assets/categories/deliveries.jpg";
+import catCarpenters from "@/assets/categories/carpenters.jpg";
+import catMjengo from "@/assets/categories/mjengo.jpg";
+import catFundi from "@/assets/categories/fundi.jpg";
+import catCleaning from "@/assets/categories/cleaning.jpg";
+import catDrivers from "@/assets/categories/drivers.jpg";
+import catPlumbers from "@/assets/categories/plumbers.jpg";
+import catElectricians from "@/assets/categories/electricians.jpg";
+import catCooks from "@/assets/categories/cooks.jpg";
+import catSecurity from "@/assets/categories/security.jpg";
+import catMechanics from "@/assets/categories/mechanics.jpg";
+import catGardeners from "@/assets/categories/gardeners.jpg";
+import catMovers from "@/assets/categories/movers.jpg";
+import catTailors from "@/assets/categories/tailors.jpg";
+import catPainters from "@/assets/categories/painters.jpg";
+import catSalon from "@/assets/categories/salon.jpg";
+
 
 
 
