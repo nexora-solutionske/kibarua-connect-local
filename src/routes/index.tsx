@@ -127,25 +127,26 @@ export const Route = createFileRoute("/")({
 function Landing() {
   const [query, setQuery] = useState("");
   const categories = [
-    { name: "Handyman", icon: Wrench },
-    { name: "Mamafua", icon: Sparkles },
-    { name: "Deliveries", icon: Truck },
-    { name: "Carpenters", icon: Hammer },
-    { name: "Mjengo", icon: Hammer },
-    { name: "Fundi", icon: Wrench },
-    { name: "Cleaning", icon: Sparkles },
-    { name: "Drivers", icon: Car },
-    { name: "Plumbers", icon: Droplets },
-    { name: "Electricians", icon: Zap },
-    { name: "Cooks", icon: ChefHat },
-    { name: "Security", icon: ShieldCheck },
-    { name: "Mechanics", icon: Wrench },
-    { name: "Gardeners", icon: Leaf },
-    { name: "Movers", icon: Package },
-    { name: "Tailors", icon: Shirt },
-    { name: "Painters", icon: PaintBucket },
-    { name: "Salon & Nails", icon: Scissors },
+    { name: "Handyman", icon: Wrench, img: catHandyman },
+    { name: "Mamafua", icon: Sparkles, img: catMamafua },
+    { name: "Deliveries", icon: Truck, img: catDeliveries },
+    { name: "Carpenters", icon: Hammer, img: catCarpenters },
+    { name: "Mjengo", icon: Hammer, img: catMjengo },
+    { name: "Fundi", icon: Wrench, img: catFundi },
+    { name: "Cleaning", icon: Sparkles, img: catCleaning },
+    { name: "Drivers", icon: Car, img: catDrivers },
+    { name: "Plumbers", icon: Droplets, img: catPlumbers },
+    { name: "Electricians", icon: Zap, img: catElectricians },
+    { name: "Cooks", icon: ChefHat, img: catCooks },
+    { name: "Security", icon: ShieldCheck, img: catSecurity },
+    { name: "Mechanics", icon: Wrench, img: catMechanics },
+    { name: "Gardeners", icon: Leaf, img: catGardeners },
+    { name: "Movers", icon: Package, img: catMovers },
+    { name: "Tailors", icon: Shirt, img: catTailors },
+    { name: "Painters", icon: PaintBucket, img: catPainters },
+    { name: "Salon & Nails", icon: Scissors, img: catSalon },
   ];
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return categories;
