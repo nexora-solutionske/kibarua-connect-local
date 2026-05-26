@@ -129,48 +129,37 @@ function Landing() {
               Plumbers, Electricians, Cooks, Security, Mechanics, Gardeners, Deliveries. Powered by location, built for the people. #ikoworks
             </p>
 
-            <form
-              onSubmit={onSubmit}
-              className="mx-auto mt-6 flex w-full max-w-md flex-col gap-3 sm:mt-8 sm:flex-row md:mx-0"
-            >
-              <label htmlFor="waitlist-email" className="sr-only">Email address</label>
-              <input
-                id="waitlist-email"
-                type="email"
-                required
-                inputMode="email"
-                autoComplete="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email"
-                className="flex-1 rounded-xl border border-border bg-card px-4 py-3 text-base outline-none focus:ring-2 sm:text-sm"
-                style={{ boxShadow: "var(--shadow-soft)" }}
-              />
-              <button
-                type="submit"
-                disabled={loading || submitted}
-                className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:opacity-70"
-                style={{ background: "var(--gradient-brand)", boxShadow: "var(--shadow-soft)" }}
+            <div className="mx-auto mt-6 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row md:mx-0 md:justify-start">
+              <a
+                href="https://play.google.com/store"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get Kibarua on Google Play"
+                className="inline-flex min-h-[56px] w-full items-center gap-3 rounded-xl px-5 py-3 text-white transition-transform hover:scale-[1.02] active:scale-[0.99] sm:w-auto"
+                style={{ background: "var(--brand-navy)", boxShadow: "var(--shadow-soft)" }}
               >
-                {loading ? (
-                  <>
-                    Saving… <Loader2 className="h-4 w-4 animate-spin" />
-                  </>
-                ) : (
-                  <>
-                    {submitted ? "You're in!" : "Notify me"} <ArrowRight className="h-4 w-4" />
-                  </>
-                )}
-              </button>
-            </form>
-            {submitted && (
-              <p className="mt-3 text-sm" style={{ color: "var(--brand-green)" }}>
-                Asante! We'll let you know when the app launches.
-              </p>
-            )}
-            {error && !submitted && (
-              <p className="mt-3 text-sm text-destructive">{error}</p>
-            )}
+                <Smartphone className="h-6 w-6" />
+                <span className="flex flex-col text-left leading-tight">
+                  <span className="text-[10px] uppercase tracking-wide opacity-80">Get it on</span>
+                  <span className="text-base font-semibold">Google Play</span>
+                </span>
+              </a>
+              <a
+                href="https://www.apple.com/app-store/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download Kibarua on the App Store"
+                className="inline-flex min-h-[56px] w-full items-center gap-3 rounded-xl px-5 py-3 text-white transition-transform hover:scale-[1.02] active:scale-[0.99] sm:w-auto"
+                style={{ background: "var(--brand-navy)", boxShadow: "var(--shadow-soft)" }}
+              >
+                <Apple className="h-6 w-6" />
+                <span className="flex flex-col text-left leading-tight">
+                  <span className="text-[10px] uppercase tracking-wide opacity-80">Download on the</span>
+                  <span className="text-base font-semibold">App Store</span>
+                </span>
+              </a>
+            </div>
+
           </div>
 
           <div className="relative order-first flex justify-center md:order-last">
