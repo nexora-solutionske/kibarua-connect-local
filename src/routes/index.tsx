@@ -8,6 +8,25 @@ import {
 import logo from "@/assets/kibarua-logo.jpeg";
 import { FloatingIconsBg } from "@/components/FloatingIconsBg";
 import { NavBar } from "@/components/NavBar";
+import catHandyman from "@/assets/categories/handyman.jpg";
+import catMamafua from "@/assets/categories/mamafua.jpg";
+import catDeliveries from "@/assets/categories/deliveries.jpg";
+import catCarpenters from "@/assets/categories/carpenters.jpg";
+import catMjengo from "@/assets/categories/mjengo.jpg";
+import catFundi from "@/assets/categories/fundi.jpg";
+import catCleaning from "@/assets/categories/cleaning.jpg";
+import catDrivers from "@/assets/categories/drivers.jpg";
+import catPlumbers from "@/assets/categories/plumbers.jpg";
+import catElectricians from "@/assets/categories/electricians.jpg";
+import catCooks from "@/assets/categories/cooks.jpg";
+import catSecurity from "@/assets/categories/security.jpg";
+import catMechanics from "@/assets/categories/mechanics.jpg";
+import catGardeners from "@/assets/categories/gardeners.jpg";
+import catMovers from "@/assets/categories/movers.jpg";
+import catTailors from "@/assets/categories/tailors.jpg";
+import catPainters from "@/assets/categories/painters.jpg";
+import catSalon from "@/assets/categories/salon.jpg";
+
 
 
 
@@ -108,25 +127,26 @@ export const Route = createFileRoute("/")({
 function Landing() {
   const [query, setQuery] = useState("");
   const categories = [
-    { name: "Handyman", icon: Wrench },
-    { name: "Mamafua", icon: Sparkles },
-    { name: "Deliveries", icon: Truck },
-    { name: "Carpenters", icon: Hammer },
-    { name: "Mjengo", icon: Hammer },
-    { name: "Fundi", icon: Wrench },
-    { name: "Cleaning", icon: Sparkles },
-    { name: "Drivers", icon: Car },
-    { name: "Plumbers", icon: Droplets },
-    { name: "Electricians", icon: Zap },
-    { name: "Cooks", icon: ChefHat },
-    { name: "Security", icon: ShieldCheck },
-    { name: "Mechanics", icon: Wrench },
-    { name: "Gardeners", icon: Leaf },
-    { name: "Movers", icon: Package },
-    { name: "Tailors", icon: Shirt },
-    { name: "Painters", icon: PaintBucket },
-    { name: "Salon & Nails", icon: Scissors },
+    { name: "Handyman", icon: Wrench, img: catHandyman },
+    { name: "Mamafua", icon: Sparkles, img: catMamafua },
+    { name: "Deliveries", icon: Truck, img: catDeliveries },
+    { name: "Carpenters", icon: Hammer, img: catCarpenters },
+    { name: "Mjengo", icon: Hammer, img: catMjengo },
+    { name: "Fundi", icon: Wrench, img: catFundi },
+    { name: "Cleaning", icon: Sparkles, img: catCleaning },
+    { name: "Drivers", icon: Car, img: catDrivers },
+    { name: "Plumbers", icon: Droplets, img: catPlumbers },
+    { name: "Electricians", icon: Zap, img: catElectricians },
+    { name: "Cooks", icon: ChefHat, img: catCooks },
+    { name: "Security", icon: ShieldCheck, img: catSecurity },
+    { name: "Mechanics", icon: Wrench, img: catMechanics },
+    { name: "Gardeners", icon: Leaf, img: catGardeners },
+    { name: "Movers", icon: Package, img: catMovers },
+    { name: "Tailors", icon: Shirt, img: catTailors },
+    { name: "Painters", icon: PaintBucket, img: catPainters },
+    { name: "Salon & Nails", icon: Scissors, img: catSalon },
   ];
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return categories;
@@ -231,22 +251,34 @@ function Landing() {
           </div>
 
           <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-6">
-            {filtered.map(({ name, icon: Icon }) => (
+            {filtered.map(({ name, icon: Icon, img }) => (
               <button
                 key={name}
                 type="button"
-                className="group flex flex-col items-center gap-2 rounded-2xl bg-card p-4 text-center transition-transform hover:-translate-y-1"
+                className="group overflow-hidden rounded-2xl bg-card text-left transition-transform hover:-translate-y-1"
                 style={{ boxShadow: "var(--shadow-soft)" }}
               >
-                <span
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-xl transition-colors group-hover:scale-110"
-                  style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
-                >
-                  <Icon className="h-5 w-5" />
-                </span>
-                <span className="text-sm font-semibold" style={{ color: "var(--brand-navy)" }}>
-                  {name}
-                </span>
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src={img}
+                    alt={`${name} category`}
+                    loading="lazy"
+                    width={512}
+                    height={384}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <span
+                    className="absolute right-2 top-2 inline-flex h-9 w-9 items-center justify-center rounded-xl backdrop-blur-sm"
+                    style={{ background: "rgba(255,255,255,0.85)", color: "var(--brand-green)" }}
+                  >
+                    <Icon className="h-4 w-4" />
+                  </span>
+                </div>
+                <div className="px-3 py-2.5">
+                  <span className="text-sm font-semibold" style={{ color: "var(--brand-navy)" }}>
+                    {name}
+                  </span>
+                </div>
               </button>
             ))}
             {filtered.length === 0 && (
