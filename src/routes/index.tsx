@@ -207,6 +207,57 @@ function Landing() {
           </div>
         </section>
 
+        <section id="categories" className="mt-16 sm:mt-24">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl" style={{ color: "var(--brand-navy)" }}>
+                Browse by Category
+              </h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Find the kibarua you need — tap a category or search below.
+              </p>
+            </div>
+            <label className="relative w-full sm:max-w-xs">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Search categories…"
+                className="w-full rounded-xl border border-border bg-card py-2.5 pl-9 pr-3 text-sm outline-none focus:ring-2"
+                style={{ boxShadow: "var(--shadow-soft)" }}
+              />
+            </label>
+          </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-6">
+            {filtered.map(({ name, icon: Icon }) => (
+              <button
+                key={name}
+                type="button"
+                className="group flex flex-col items-center gap-2 rounded-2xl bg-card p-4 text-center transition-transform hover:-translate-y-1"
+                style={{ boxShadow: "var(--shadow-soft)" }}
+              >
+                <span
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-xl transition-colors group-hover:scale-110"
+                  style={{ background: "var(--brand-green-soft)", color: "var(--brand-green)" }}
+                >
+                  <Icon className="h-5 w-5" />
+                </span>
+                <span className="text-sm font-semibold" style={{ color: "var(--brand-navy)" }}>
+                  {name}
+                </span>
+              </button>
+            ))}
+            {filtered.length === 0 && (
+              <p className="col-span-full text-center text-sm text-muted-foreground">
+                No categories match "{query}". Try another keyword.
+              </p>
+            )}
+          </div>
+        </section>
+
+
         <section className="mt-16 grid gap-4 sm:mt-24 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {[
             { icon: Briefcase, title: "Find Jobs Fast", desc: "Post or apply for casual jobs in minutes." },
