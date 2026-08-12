@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/kibarua-logo.jpeg";
+import logoAsset from "@/assets/kibarua-logo.png.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -16,7 +16,7 @@ export function NavBar() {
   return (
     <header className="relative z-20 mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6">
       <Link to="/" className="flex items-center gap-2 sm:gap-3" onClick={() => setOpen(false)}>
-        <img src={logo} alt="Kibarua logo" className="h-9 w-9 rounded-lg object-cover sm:h-11 sm:w-11" />
+        <img src={logoAsset.url} alt="Kibarua logo" className="h-9 w-9 rounded-lg object-cover sm:h-11 sm:w-11" />
         <span className="text-base font-bold tracking-tight sm:text-lg" style={{ color: "var(--brand-navy)" }}>
           Kibarua
         </span>
