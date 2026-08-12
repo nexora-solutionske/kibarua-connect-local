@@ -5,7 +5,7 @@ import {
   Wrench, Hammer, Truck, Sparkles, Zap, Droplets, ChefHat,
   ShieldCheck, Car, Leaf, Package, Shirt, PaintBucket, Scissors,
 } from "lucide-react";
-import logo from "@/assets/kibarua-logo.jpeg";
+import logoAsset from "@/assets/kibarua-logo.png.asset.json";
 import { FloatingIconsBg } from "@/components/FloatingIconsBg";
 import { NavBar } from "@/components/NavBar";
 import catHandyman from "@/assets/categories/handyman.jpg";
@@ -219,7 +219,7 @@ function Landing() {
               style={{ background: "var(--brand-green-soft)" }}
             />
             <img
-              src={logo}
+              src={logoAsset.url}
               alt="Kibarua casual jobs app"
               className="w-48 rounded-3xl bg-white object-contain p-4 sm:w-72 md:w-full md:max-w-md md:p-6"
               style={{ boxShadow: "var(--shadow-soft)" }}
