@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Android, Bell, CheckCircle2, Download, MapPin, Settings,
+  Bell, CheckCircle2, Download, MapPin, Settings,
   ShieldAlert, Smartphone, Star,
 } from "lucide-react";
 import logoUrl from "@/assets/kibarua-logo.jpg";
