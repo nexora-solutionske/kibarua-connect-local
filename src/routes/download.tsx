@@ -70,7 +70,7 @@ function DownloadPage() {
               className="mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
               style={{ background: "var(--brand-green-soft)", color: "var(--brand-navy)" }}
             >
-              <Android className="h-3.5 w-3.5" /> Android APK · Free download
+              <Smartphone className="h-3.5 w-3.5" /> Android APK · Free download
             </div>
             <h1
               className="text-[2rem] font-extrabold leading-[1.1] tracking-tight sm:text-5xl"
