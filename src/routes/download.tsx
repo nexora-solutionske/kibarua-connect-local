@@ -87,9 +87,7 @@ function DownloadPage() {
               {APK_URL ? (
                 <a
                   href={APK_URL}
-                  download="kibaruaConnect.apk"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  download="Kibarua.apk"
                   aria-label="Download Kibarua APK"
                   className="inline-flex min-h-[56px] w-full items-center gap-3 rounded-xl px-6 py-3 text-white transition-transform hover:scale-[1.02] active:scale-[0.99] sm:w-auto"
                   style={{ background: "var(--brand-green)", boxShadow: "var(--shadow-soft)" }}
