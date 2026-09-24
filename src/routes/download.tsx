@@ -12,9 +12,8 @@ const TITLE = "Download Kibarua APK — Casual Jobs App for Android";
 const DESCRIPTION =
   "Download the Kibarua Android APK and install it on your phone. Find casual jobs near you in Kenya — Mjengo, Fundi, Cleaning, Drivers, Deliveries and more. Powered by location. #ikoworks";
 
-// Hosted APK: GitHub release asset (auto-downloads when clicked).
-const APK_URL =
-  "https://github.com/nexora-solutionske/kibarua-connect-local/releases/download/main/kibaruaConnect.apk";
+// APK is served through our own endpoint so the source URL is never exposed.
+const APK_URL = "/api/public/download-apk";
 
 export const Route = createFileRoute("/download")({
   head: () => ({
@@ -88,9 +87,7 @@ function DownloadPage() {
               {APK_URL ? (
                 <a
                   href={APK_URL}
-                  download="kibaruaConnect.apk"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  download="Kibarua.apk"
                   aria-label="Download Kibarua APK"
                   className="inline-flex min-h-[56px] w-full items-center gap-3 rounded-xl px-6 py-3 text-white transition-transform hover:scale-[1.02] active:scale-[0.99] sm:w-auto"
                   style={{ background: "var(--brand-green)", boxShadow: "var(--shadow-soft)" }}
